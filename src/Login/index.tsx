@@ -17,7 +17,7 @@ type LoginProps = {
   password: string;
 }
 
-export default function Login({navigation}){
+export default function Login({navigation}:any){
   const { control, handleSubmit } = useForm();
 
 
