@@ -1,11 +1,8 @@
 import React from 'react'
-import { useNavigation } from '@react-navigation/core';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useForm, useController } from 'react-hook-form';
 import { api } from '../services/api';
 import * as S from './styles';
-import { Home } from '../Home';
-import { NavigationContainer } from '@react-navigation/native';
 
 type InputProps = {
   name: string;
@@ -38,10 +35,8 @@ export default function Login({navigation}:any){
       const { access_token, aluno_id } = data;
       await AsyncStorage.setItem('@aluno_id', aluno_id);
       await AsyncStorage.setItem('@access_token', access_token);
-      //await AsyncStorage.setItem('@nome_completo', nome_completo);
+
       navigation.navigate('Home')
-      // console.log(aluno_id, access_token)
-      //console.log(data)
 
     } catch (err) {
       console.log(err)
@@ -67,7 +62,6 @@ export default function Login({navigation}:any){
         <S.ButtonWrapper>
           <S.Button onPress={
             handleSubmit(signIn)
-            // navigation.navigate('Home');
           }
             >
             <S.Text>

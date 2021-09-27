@@ -1,11 +1,10 @@
 import React, { useState, useEffect} from 'react';
-import { FlatList, View, Text, Alert } from 'react-native';
+import { FlatList, Text, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { api } from '../services/api'
 
 import * as S from './styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Item from '../components/Item';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 type AssaysProps = {
@@ -14,7 +13,7 @@ type AssaysProps = {
   created_at: string;
 }
 
-export function Home({ navigation }){
+export function Home({ navigation }:any){
   const [assays, setAssays] = useState<AssaysProps[]>([]);
 
   useEffect(() => {
